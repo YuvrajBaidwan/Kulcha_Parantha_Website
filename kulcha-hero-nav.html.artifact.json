@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "Kulcha &amp; Prantha Co. — Hero + Navigation",
+  "entry": "kulcha-hero-nav.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-05-24T17:53:17.085Z",
+  "updatedAt": "2026-05-24T17:53:17.114Z",
+  "designSystemId": "stripe",
+  "metadata": {
+    "identifier": "kulcha-hero-nav",
+    "artifactType": "text/html",
+    "inferred": false
+  }
+}

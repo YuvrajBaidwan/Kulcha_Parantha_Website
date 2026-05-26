@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "Kulcha & Prantha Co. — The Process scrollytelling section",
+  "entry": "process-scrollytelling.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-05-26T16:38:44.464Z",
+  "updatedAt": "2026-05-26T16:38:44.498Z",
+  "designSystemId": "stripe",
+  "metadata": {
+    "identifier": "process-scrollytelling",
+    "artifactType": "text/html",
+    "inferred": false
+  }
+}

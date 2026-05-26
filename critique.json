@@ -1,0 +1,26 @@
+{
+  "kind": "critique-panel",
+  "score": 4,
+  "axes": {
+    "philosophy": {
+      "score": 4,
+      "notes": "Dual-personality approach correctly translates Zomato (editorial maroon, slower, curated) and Swiggy (saffron kinetic, faster, dispatch) without literal brand colors. Atmosphere reads as luxury dispatch lounge, not delivery app."
+    },
+    "hierarchy": {
+      "score": 4,
+      "notes": "Hero headline anchors first. Platform cards are the clear primary interaction (most visually differentiated section). Supporting sections recede appropriately. One focal point per section."
+    },
+    "typography": {
+      "score": 4,
+      "notes": "Playfair Display for headings gives heritage weight. Inter for body keeps readability. Generous leading (1.6+) at body sizes. Tight tracking on display sizes (-1.8px). Consistent hierarchy."
+    },
+    "motion": {
+      "score": 4,
+      "notes": "Scroll reveals via IntersectionObserver with staggered delays. Platform-specific timing (700ms Zomato vs 500ms Swiggy) is subtle but intentional. Hover lifts + shadow intensification. prefers-reduced-motion respected."
+    },
+    "brand": {
+      "score": 4,
+      "notes": "Strict 5-color palette enforced. No external colors. Platform personalities expressed through maroon vs saffron families only. Heritage arch framing + film grain + vignette maintain existing brand atmosphere."
+    }
+  }
+}

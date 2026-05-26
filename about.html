@@ -1,0 +1,1655 @@
+<!doctype html>
+<html lang="en" data-gsap-preload>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About — Kulcha &amp; Prantha Co.</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:        #f5dbb3;
+      --cream-soft:   rgba(245, 219, 179, 0.72);
+      --cream-muted:  rgba(245, 219, 179, 0.50);
+      --cream-dim:    rgba(245, 219, 179, 0.28);
+      --cream-faint:  rgba(245, 219, 179, 0.08);
+      --teal:         #095256;
+      --teal-light:   rgba(9, 82, 86, 0.12);
+      --teal-mid:     rgba(9, 82, 86, 0.18);
+      --saffron:      #e79c10;
+      --saffron-light: #f0b030;
+      --saffron-dim:  rgba(231, 156, 16, 0.50);
+      --saffron-faint: rgba(231, 156, 16, 0.10);
+      --maroon:       #870e0b;
+      --maroon-deep:  #6a0a08;
+      --maroon-light: rgba(135, 14, 11, 0.15);
+      --maroon-mid:   rgba(135, 14, 11, 0.08);
+      --maroon-faint: rgba(135, 14, 11, 0.04);
+      --charcoal:     #141818;
+      --charcoal-warm: #1a1615;
+      --charcoal-mid:  #1f1a18;
+      --bg:           #161211;
+      --bg-surface:   #1e1816;
+      --bg-elevated:  #241e1b;
+      --text:         var(--cream);
+      --text-muted:   var(--cream-soft);
+      --text-dim:     var(--cream-muted);
+      --font-serif:   'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
+      --ease-in-out:  cubic-bezier(0.65, 0, 0.35, 1);
+
+      /* ─── Spacing tokens ─────────────────────────── */
+      --space-xs:  4px;
+      --space-sm:  8px;
+      --space-md:  16px;
+      --space-lg:  24px;
+      --space-xl:  32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 80px;
+      --space-5xl: 100px;
+      --space-6xl: 120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    html[data-gsap-preload] .site-nav { visibility: hidden; }
+    html[data-gsap-preload] .nav-links a { visibility: hidden; }
+    html[data-gsap-preload] .nav-actions > * { visibility: hidden; }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ══════════════════════════════════════════════════════════════
+       LUXURY HERITAGE BACKGROUND SYSTEM
+       ══════════════════════════════════════════════════════════════ */
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    /* ─── Layer 1: Asymmetric base blend ───────────────────────── */
+    .bg-base {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 15% 20%, rgba(135, 14, 11, 0.85) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 65%, rgba(9, 82, 86, 0.65) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(20, 24, 24, 0.70) 0%, transparent 45%),
+        radial-gradient(ellipse at 90% 15%, rgba(135, 14, 11, 0.40) 0%, transparent 40%),
+        radial-gradient(ellipse at 30% 85%, rgba(9, 82, 86, 0.25) 0%, transparent 35%);
+      background-blend-mode: soft-light, normal, normal, normal, normal;
+    }
+
+    /* ─── Layer 2: Tactile material texture ────────────────────── */
+    .bg-texture {
+      position: absolute;
+      inset: 0;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 512px 512px;
+      mix-blend-mode: soft-light;
+    }
+
+    /* ─── Layer 3: Heritage decorative pattern ─────────────────── */
+    .bg-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.02;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23f5dbb3' stroke-width='0.5'%3E%3Ccircle cx='120' cy='120' r='100' opacity='0.4'/%3E%3Ccircle cx='120' cy='120' r='80' opacity='0.3'/%3E%3Ccircle cx='120' cy='120' r='60' opacity='0.25'/%3E%3Ccircle cx='120' cy='120' r='40' opacity='0.2'/%3E%3Ccircle cx='120' cy='120' r='20' opacity='0.15'/%3E%3Cpath d='M120 20v200M20 120h200' opacity='0.2'/%3E%3Cpath d='M95 25l25-15 25 15-10 18h-30z' opacity='0.15'/%3E%3Cpath d='M95 215l25 15 25-15-10-18h-30z' opacity='0.15'/%3E%3Cpath d='M25 95L10 120l15 25 18-10v-30z' opacity='0.15'/%3E%3Cpath d='M215 95l15 25-15 25-18-10v-30z' opacity='0.15'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 240px 240px;
+    }
+
+    /* ─── Layer 4: Ghosted brand architecture / watermark ──────── */
+    .bg-watermark {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .bg-watermark-svg {
+      width: min(90vw, 800px);
+      height: auto;
+      opacity: 0.025;
+      transform: translateX(5%) scale(1.2);
+    }
+    .bg-watermark-svg circle,
+    .bg-watermark-svg path {
+      stroke: var(--cream);
+      fill: none;
+    }
+    .bg-watermark-svg .brand-arch-fill {
+      fill: var(--cream);
+    }
+
+    /* ─── Layer 5: Cinematic lighting ──────────────────────────── */
+    .bg-lighting {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .bg-light-cream {
+      position: absolute;
+      top: -10%;
+      left: -5%;
+      width: 55%;
+      aspect-ratio: 1.2;
+      background: radial-gradient(ellipse, rgba(245, 219, 179, 0.04) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+    .bg-light-saffron {
+      position: absolute;
+      bottom: 5%;
+      right: 0%;
+      width: 40%;
+      aspect-ratio: 1.5;
+      background: radial-gradient(ellipse, rgba(231, 156, 16, 0.05) 0%, transparent 60%);
+      border-radius: 50%;
+    }
+    .bg-light-gold {
+      position: absolute;
+      top: 40%;
+      left: 60%;
+      width: 35%;
+      aspect-ratio: 1;
+      background: radial-gradient(ellipse, rgba(231, 156, 16, 0.03) 0%, transparent 55%);
+      border-radius: 50%;
+    }
+    .bg-light-edge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: linear-gradient(180deg, rgba(245, 219, 179, 0.03) 0%, transparent 100%);
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       NAVIGATION (maroon-tinted frosted glass)
+       ══════════════════════════════════════════════════════════════ */
+    .site-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: padding 0.4s var(--ease-out), background 0.4s var(--ease-out);
+    }
+    .site-nav.scrolled { padding: 12px 40px; }
+    .nav-glass {
+      position: absolute;
+      inset: 0;
+      background: rgba(22, 18, 17, 0.55);
+      backdrop-filter: blur(24px) saturate(1.2);
+      -webkit-backdrop-filter: blur(24px) saturate(1.2);
+      border-bottom: 1px solid rgba(245, 219, 179, 0.06);
+      transition: background 0.4s var(--ease-out);
+    }
+    .site-nav.scrolled .nav-glass {
+      background: rgba(22, 18, 17, 0.80);
+      border-bottom-color: rgba(245, 219, 179, 0.10);
+    }
+    .nav-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-brand img { height: 34px; width: auto; }
+    .nav-brand span {
+      font-family: var(--font-serif);
+      font-size: 16px; font-weight: 600;
+      color: var(--cream);
+      letter-spacing: -0.3px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px; font-weight: 400;
+      color: var(--cream-muted);
+      letter-spacing: 0.04em;
+      transition: color 0.3s var(--ease-out);
+      position: relative;
+      padding: 4px 0;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--saffron);
+      transition: width 0.3s var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active {
+      color: var(--cream);
+      font-weight: 500;
+    }
+    .nav-links a.active::before {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--saffron);
+      box-shadow: 0 0 8px rgba(231, 156, 16, 0.35);
+    }
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-icon {
+      display: grid;
+      place-items: center;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--cream-faint);
+      border: 1px solid var(--cream-dim);
+      color: var(--cream-muted);
+      font-size: 15px;
+      cursor: pointer;
+      will-change: transform;
+      transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+    }
+    .nav-icon:hover {
+      background: var(--saffron-faint);
+      color: var(--saffron-light);
+      border-color: rgba(231, 156, 16, 0.2);
+      transform: translateY(-1px);
+    }
+    .nav-cart { position: relative; }
+    .nav-cart .badge {
+      position: absolute;
+      top: -2px; right: -2px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--saffron);
+      color: var(--charcoal);
+      font-size: 9px; font-weight: 600;
+      display: grid; place-items: center;
+      line-height: 1;
+    }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 3;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--cream);
+      border-radius: 2px;
+      will-change: transform;
+      transition: transform 0.3s var(--ease-out), opacity 0.3s var(--ease-out);
+    }
+    .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4px, -5px); }
+
+    @media (max-width: 900px) {
+      .site-nav { padding: 14px 24px; }
+      .site-nav.scrolled { padding: 10px 24px; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 16px; right: 16px;
+        background: rgba(22, 18, 17, 0.92);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-radius: 16px;
+        flex-direction: column;
+        padding: 8px;
+        gap: 2px;
+        border: 1px solid var(--cream-dim);
+        box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        display: block;
+        padding: 12px 16px;
+        border-radius: 10px;
+        width: 100%;
+        font-size: 14px;
+      }
+      .nav-links a:hover { background: var(--cream-faint); }
+      .nav-links a::after { display: none; }
+      .nav-toggle { display: flex; }
+    }
+    @media (max-width: 640px) {
+      .site-nav { padding: 12px 16px; }
+      .site-nav.scrolled { padding: 10px 16px; }
+      .nav-brand span { font-size: 14px; }
+      .nav-brand img { height: 28px; }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       ABOUT HERO — WARM INTIMATE ATMOSPHERE
+       ══════════════════════════════════════════════════════════════ */
+    .about-hero {
+      position: relative;
+      width: 100%;
+      height: 75vh;
+      min-height: 520px;
+      max-height: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .about-hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 25% 30%, rgba(135, 14, 11, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 60%, rgba(9, 82, 86, 0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 80%, rgba(20, 24, 24, 0.30) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 20%, rgba(231, 156, 16, 0.06) 0%, transparent 35%),
+        radial-gradient(ellipse at 40% 45%, rgba(245, 219, 179, 0.03) 0%, transparent 30%);
+    }
+    .about-hero-texture {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 400px 400px;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+    }
+    .about-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+        rgba(22, 18, 17, 0.50) 0%,
+        rgba(22, 18, 17, 0.10) 20%,
+        rgba(22, 18, 17, 0.02) 40%,
+        rgba(22, 18, 17, 0.15) 55%,
+        rgba(22, 18, 17, 0.50) 65%,
+        rgba(22, 18, 17, 0.75) 75%,
+        var(--bg) 92%
+      );
+      pointer-events: none;
+    }
+    .about-hero-light {
+      position: absolute;
+      top: -8%;
+      left: -4%;
+      width: 60%;
+      aspect-ratio: 1.3;
+      background: radial-gradient(ellipse, rgba(245, 219, 179, 0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .about-hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 720px;
+      padding: 24px;
+    }
+    .about-hero-eyebrow {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 20px;
+      padding: 6px 18px;
+      border-radius: 100px;
+      background: var(--saffron-faint);
+      border: 1px solid rgba(231, 156, 16, 0.12);
+      opacity: 0;
+      transition: opacity 0.8s var(--ease-out);
+    }
+    .about-hero-eyebrow.visible { opacity: 1; }
+    .about-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--cream);
+      letter-spacing: -1.2px;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+    }
+    .about-hero-title.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .about-hero-title .accent {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .about-hero-sub {
+      font-size: clamp(15px, 1.6vw, 18px);
+      font-weight: 300;
+      color: var(--cream-soft);
+      line-height: 1.6;
+      max-width: 540px;
+      margin: 0 auto 28px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.8s var(--ease-out) 0.15s, transform 0.8s var(--ease-out) 0.15s;
+    }
+    .about-hero-sub.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .about-hero-divider {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+      margin: 0 auto;
+      opacity: 0;
+      transition: opacity 0.8s var(--ease-out) 0.3s;
+    }
+    .about-hero-divider.visible { opacity: 1; }
+
+    @media (max-width: 640px) {
+      .about-hero { height: 65vh; min-height: 440px; }
+      .about-hero-content { padding: 16px; }
+      .about-hero-eyebrow { font-size: 10px; margin-bottom: 14px; }
+      .about-hero-sub { font-size: 14px; }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       ABOUT — OUR STORY
+       ══════════════════════════════════════════════════════════════ */
+    .about {
+      position: relative;
+      padding: var(--space-6xl) 24px var(--space-5xl);
+      overflow: hidden;
+    }
+    .about::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(231, 156, 16, 0.12), transparent);
+    }
+    .about-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 25% 20%, rgba(135, 14, 11, 0.06) 0%, transparent 45%),
+        radial-gradient(ellipse at 70% 75%, rgba(9, 82, 86, 0.05) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 90%, rgba(20, 24, 24, 0.08) 0%, transparent 35%);
+      pointer-events: none;
+    }
+    .about-pattern-deco {
+      position: absolute;
+      inset: 0;
+      opacity: 0.015;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23f5dbb3' stroke-width='0.4'%3E%3Cpath d='M100 10v180M10 100h180' opacity='0.3'/%3E%3Cpath d='M100 30l-20 30h40z' opacity='0.2'/%3E%3Cpath d='M100 170l-20-30h40z' opacity='0.2'/%3E%3Cpath d='M30 100l30-20v40z' opacity='0.2'/%3E%3Cpath d='M170 100l-30-20v40z' opacity='0.2'/%3E%3Ccircle cx='100' cy='100' r='60' opacity='0.15'/%3E%3Ccircle cx='100' cy='100' r='40' opacity='0.12'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 200px 200px;
+      pointer-events: none;
+    }
+    .about-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── Intro band ──────────────────────────────────────────── */
+    .about-intro {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .about-eyebrow {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 16px;
+      padding: 6px 18px;
+      border-radius: 100px;
+      background: var(--saffron-faint);
+      border: 1px solid rgba(231, 156, 16, 0.12);
+    }
+    .about-title {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 4.5vw, 48px);
+      font-weight: 600;
+      line-height: 1.12;
+      color: var(--cream);
+      margin-bottom: 18px;
+      letter-spacing: -1px;
+    }
+    .about-title .accent {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .about-desc {
+      font-size: clamp(15px, 1.3vw, 17px);
+      font-weight: 300;
+      color: var(--cream-soft);
+      line-height: 1.7;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .about-divider {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+      margin: 32px auto 0;
+    }
+
+    /* ─── Split layout (story + founder) ─────────────────────── */
+    .about-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      align-items: start;
+      margin-bottom: var(--space-4xl);
+    }
+    .about-story-col { padding-top: 8px; }
+    .about-story-col p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--cream-soft);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+    .about-story-col p:last-child { margin-bottom: 0; }
+    .about-story-col p strong {
+      font-weight: 500;
+      color: var(--cream);
+    }
+
+    .about-founder-panel {
+      background: linear-gradient(155deg, rgba(9, 82, 86, 0.10), rgba(135, 14, 11, 0.04));
+      border: 1px solid rgba(9, 82, 86, 0.12);
+      border-radius: 16px;
+      padding: 40px 36px;
+      position: relative;
+      box-shadow:
+        inset 0 1px 0 rgba(245, 219, 179, 0.04),
+        0 1px 3px rgba(0,0,0,0.2);
+    }
+    .about-founder-panel::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(231, 156, 16, 0.06), transparent 40%, transparent 60%, rgba(9, 82, 86, 0.06));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .about-founder-label {
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--saffron-dim);
+    }
+    .about-founder-name {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: -0.5px;
+      margin-top: 8px;
+      margin-bottom: 0;
+    }
+    .about-founder-rule {
+      width: 32px;
+      height: 1.5px;
+      background: var(--saffron);
+      margin: 20px 0 24px;
+    }
+    .about-founder-text {
+      font-size: 16px;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--cream-soft);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .about-milestone {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(245, 219, 179, 0.04);
+    }
+    .about-milestone:first-of-type {
+      border-top: 1px solid rgba(9, 82, 86, 0.15);
+    }
+    .about-milestone-num {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--saffron);
+      letter-spacing: -0.3px;
+      white-space: nowrap;
+    }
+    .about-milestone-label {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--cream-muted);
+      line-height: 1.4;
+    }
+
+    /* ─── Vision block ───────────────────────────────────────── */
+    .about-vision { margin-bottom: var(--space-4xl); }
+    .about-vision-inner {
+      position: relative;
+      padding: 60px 48px;
+      background: linear-gradient(155deg, rgba(245, 219, 179, 0.02), rgba(135, 14, 11, 0.03), rgba(9, 82, 86, 0.02));
+      border: 1px solid rgba(245, 219, 179, 0.05);
+      border-radius: 16px;
+      text-align: center;
+    }
+    .about-vision-inner::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 16px;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(231, 156, 16, 0.06), transparent 30%, transparent 70%, rgba(9, 82, 86, 0.06));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .about-vision-eyebrow {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 12px;
+      padding: 5px 16px;
+      border-radius: 100px;
+      background: var(--saffron-faint);
+      border: 1px solid rgba(231, 156, 16, 0.12);
+    }
+    .about-vision-title {
+      font-family: var(--font-serif);
+      font-size: clamp(26px, 3.8vw, 40px);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 24px;
+      letter-spacing: -0.8px;
+    }
+    .about-vision-title .accent {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .about-vision-text {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--cream-soft);
+      line-height: 1.8;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .about-vision-text + .about-vision-text { margin-top: 16px; }
+
+    /* ─── Brand principles / USP strip ───────────────────────── */
+    .about-principles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .about-principle {
+      padding: 32px 28px;
+      background: linear-gradient(160deg, rgba(245, 219, 179, 0.02), rgba(135, 14, 11, 0.02));
+      border: 1px solid rgba(245, 219, 179, 0.05);
+      border-radius: 14px;
+      transition: background 0.4s var(--ease-out), border-color 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+    }
+    .about-principle:hover {
+      background: rgba(245, 219, 179, 0.03);
+      border-color: rgba(231, 156, 16, 0.10);
+      transform: translateY(-3px);
+    }
+    .about-principle-icon {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--saffron-faint);
+      border: 1px solid rgba(231, 156, 16, 0.08);
+      color: var(--saffron);
+      margin-bottom: 16px;
+    }
+    .about-principle-icon svg { width: 20px; height: 20px; }
+    .about-principle-title {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 8px;
+      letter-spacing: -0.2px;
+    }
+    .about-principle-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--cream-muted);
+      line-height: 1.55;
+    }
+
+    /* ─── Reveal animations ───────────────────────────────────── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .about { padding: var(--space-4xl) 24px var(--space-4xl); }
+      .about-intro { margin-bottom: 56px; }
+      .about-split { grid-template-columns: 1fr; gap: 36px; }
+      .about-story-col p { font-size: 14px; }
+      .about-founder-panel { padding: 32px 28px; }
+      .about-vision { margin-bottom: 60px; }
+      .about-vision-inner { padding: 44px 32px; }
+      .about-principles { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    }
+    @media (max-width: 640px) {
+      .about { padding: 60px 16px 64px; }
+      .about-intro { margin-bottom: var(--space-2xl); }
+      .about-desc { font-size: 14px; }
+      .about-split { margin-bottom: var(--space-2xl); }
+      .about-founder-name { font-size: 24px; }
+      .about-founder-text { font-size: 15px; }
+      .about-vision { margin-bottom: var(--space-2xl); }
+      .about-vision-inner { padding: 36px 20px; }
+      .about-vision-text { font-size: 14px; }
+      .about-principles { grid-template-columns: 1fr; gap: 12px; }
+      .about-principle { padding: 24px 20px; }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       TIMELINE — OUR JOURNEY
+       ══════════════════════════════════════════════════════════════ */
+    .timeline {
+      position: relative;
+      padding: var(--space-5xl) 24px var(--space-5xl);
+      overflow: hidden;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(231, 156, 16, 0.10), transparent);
+    }
+    .timeline-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 50% 20%, rgba(9, 82, 86, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(135, 14, 11, 0.03) 0%, transparent 45%);
+      pointer-events: none;
+    }
+    .timeline-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .timeline-intro {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .timeline-eyebrow {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 14px;
+      padding: 6px 18px;
+      border-radius: 100px;
+      background: var(--saffron-faint);
+      border: 1px solid rgba(231, 156, 16, 0.12);
+    }
+    .timeline-title {
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 600;
+      line-height: 1.12;
+      color: var(--cream);
+      letter-spacing: -0.8px;
+    }
+    .timeline-title .accent {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .timeline-track {
+      position: relative;
+      padding: 0 0 0 60px;
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(231, 156, 16, 0.15) 8%,
+        rgba(231, 156, 16, 0.08) 50%,
+        rgba(231, 156, 16, 0.15) 92%,
+        transparent 100%
+      );
+    }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 44px 40px;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+    }
+    .timeline-item.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -42px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1.5px solid var(--saffron);
+      box-shadow: 0 0 8px rgba(231, 156, 16, 0.15);
+    }
+    .timeline-year {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--saffron);
+      letter-spacing: -0.2px;
+      margin-bottom: 4px;
+    }
+    .timeline-headline {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.25;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+    .timeline-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream-muted);
+      line-height: 1.6;
+      max-width: 520px;
+    }
+
+    @media (max-width: 640px) {
+      .timeline { padding: 64px 16px 72px; }
+      .timeline-track { padding-left: 40px; }
+      .timeline-item { padding: 0 0 36px 28px; }
+      .timeline-dot { left: -30px; width: 8px; height: 8px; }
+      .timeline-year { font-size: 13px; }
+      .timeline-headline { font-size: 18px; }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       CONTACT US
+       ══════════════════════════════════════════════════════════════ */
+    .contact-section {
+      position: relative;
+      padding: var(--space-4xl) 24px var(--space-5xl);
+      overflow: hidden;
+    }
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(231, 156, 16, 0.12), transparent);
+    }
+    .contact-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 50% 30%, rgba(231, 156, 16, 0.03) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 80%, rgba(245, 219, 179, 0.02) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .contact-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .contact-eyebrow {
+      display: block;
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 16px;
+    }
+    .contact-title {
+      text-align: center;
+      font-family: var(--font-serif);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--cream);
+      margin-bottom: 14px;
+    }
+    .contact-title .accent {
+      background: linear-gradient(135deg, var(--saffron), var(--saffron-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .contact-divider {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+      margin: 0 auto 48px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .contact-col {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      text-align: center;
+    }
+    .contact-col-center { align-items: center; }
+    .contact-block-label {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 4px;
+    }
+    .contact-address-line {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.7;
+    }
+    .contact-address-line.muted { color: var(--cream-muted); }
+    .contact-logo-wrap { text-align: center; }
+    .contact-logo-wrap img {
+      height: 90px;
+      width: auto;
+      margin: 0 auto 16px;
+    }
+    .contact-socials {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .contact-social-link {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--cream-faint);
+      border: 1px solid var(--cream-dim);
+      color: var(--cream-muted);
+      transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+    }
+    .contact-social-link:hover {
+      background: var(--saffron-faint);
+      color: var(--saffron-light);
+      border-color: rgba(231, 156, 16, 0.2);
+      transform: translateY(-2px);
+    }
+    .contact-detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      justify-content: center;
+    }
+    .contact-detail-icon {
+      display: grid;
+      place-items: center;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-detail-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--saffron);
+    }
+    .contact-detail-text {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.6;
+    }
+    .contact-detail-text a {
+      color: var(--cream);
+      transition: color 0.3s var(--ease-out);
+    }
+    .contact-detail-text a:hover { color: var(--saffron-light); }
+
+    @media (max-width: 900px) {
+      .contact-section { padding: var(--space-3xl) 24px var(--space-4xl); }
+      .contact-grid { gap: 32px; }
+    }
+    @media (max-width: 767px) {
+      .contact-section { padding: var(--space-2xl) 16px var(--space-3xl); }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .contact-col { align-items: center; }
+      .contact-detail-row { justify-content: center; }
+      .contact-divider { margin-bottom: 36px; }
+      .contact-logo-wrap img { height: 72px; }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       BOTTOM PROGRESS BAR
+       ══════════════════════════════════════════════════════════════ */
+    .page-progress {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      z-index: 2000;
+      background: var(--cream-faint);
+    }
+    .page-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--saffron), var(--saffron-light));
+      transition: width 0.05s linear;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       SMALL DETAILS
+       ══════════════════════════════════════════════════════════════ */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--saffron);
+      outline-offset: 2px;
+    }
+    ::selection {
+      background: var(--saffron);
+      color: var(--charcoal);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       LUXURY HERITAGE BACKGROUND SYSTEM — FIXED LAYER
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="page-bg" aria-hidden="true">
+    <div class="bg-base"></div>
+    <div class="bg-texture"></div>
+    <div class="bg-pattern"></div>
+    <div class="bg-watermark">
+      <svg class="bg-watermark-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="200" cy="200" r="180" stroke-width="0.8" opacity="0.25"/>
+        <circle cx="200" cy="200" r="155" stroke-width="0.5" opacity="0.20"/>
+        <circle cx="200" cy="200" r="130" stroke-width="0.4" opacity="0.15"/>
+        <circle cx="200" cy="200" r="105" stroke-width="0.3" opacity="0.12"/>
+        <path d="M200 20v360M20 200h360" stroke-width="0.4" opacity="0.15"/>
+        <path d="M200 40l-25 35h50z" stroke-width="0.3" opacity="0.12"/>
+        <path d="M200 360l-25-35h50z" stroke-width="0.3" opacity="0.12"/>
+        <path d="M40 200l35-25v50z" stroke-width="0.3" opacity="0.12"/>
+        <path d="M360 200l-35-25v50z" stroke-width="0.3" opacity="0.12"/>
+        <path d="M200 80l-40 50h80z" stroke-width="0.3" opacity="0.10"/>
+        <path d="M200 320l-40-50h80z" stroke-width="0.3" opacity="0.10"/>
+        <path d="M80 200l50-40v80z" stroke-width="0.3" opacity="0.10"/>
+        <path d="M320 200l-50-40v80z" stroke-width="0.3" opacity="0.10"/>
+        <path d="M140 140l60-50 60 50-30 60h-60z" stroke-width="0.3" opacity="0.08"/>
+        <path d="M140 260l60 50 60-50-30-60h-60z" stroke-width="0.3" opacity="0.08"/>
+      </svg>
+    </div>
+    <div class="bg-lighting">
+      <div class="bg-light-cream"></div>
+      <div class="bg-light-saffron"></div>
+      <div class="bg-light-gold"></div>
+      <div class="bg-light-edge"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       NAVIGATION
+       ══════════════════════════════════════════════════════════════ -->
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-glass"></div>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <img src="Logo.png" alt="Kulcha &amp; Prantha Co.">
+        <span>Kulcha &amp; Prantha Co.</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="order.html">Order</a></li>
+        <li><a href="#contact">Locations</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon" aria-label="Find a location" title="Find a location">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </button>
+        <a href="order.html" class="nav-icon nav-cart" aria-label="Order online" title="Order online">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span class="badge">3</span>
+        </a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       ABOUT HERO
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="about-hero" id="about-hero">
+    <div class="about-hero-bg" aria-hidden="true"></div>
+    <div class="about-hero-texture" aria-hidden="true"></div>
+    <div class="about-hero-overlay" aria-hidden="true"></div>
+    <div class="about-hero-light" aria-hidden="true"></div>
+
+    <div class="about-hero-content">
+      <span class="about-hero-eyebrow">Our Heritage</span>
+      <h1 class="about-hero-title">
+        About Kulcha &amp; <span class="accent">Prantha Co.</span>
+      </h1>
+      <p class="about-hero-sub">
+        A modern Indian comfort-food brand — built on tradition, driven by passion, and reimagined for a new generation.
+      </p>
+      <div class="about-hero-divider"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       OUR STORY
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="about-pattern" aria-hidden="true"></div>
+    <div class="about-pattern-deco" aria-hidden="true"></div>
+    <div class="about-container">
+
+      <!-- ─── INTRO BAND ───────────────────────────────────────── -->
+      <div class="about-intro">
+        <span class="about-eyebrow" data-reveal>Our Story</span>
+        <h2 class="about-title" data-reveal>The Journey That<br>Brought Us <span class="accent">Here</span></h2>
+        <p class="about-desc" data-reveal>Every great brand starts with a simple idea. Ours started with a belief — that Indian comfort food deserves the same love, experience, and identity as any global cuisine.</p>
+        <div class="about-divider" data-reveal></div>
+      </div>
+
+      <!-- ─── STORY + FOUNDER SPLIT ────────────────────────────── -->
+      <div class="about-split">
+
+        <div class="about-story-col" data-reveal>
+          <p>Founded by young entrepreneur <strong>Rahul Tyagi</strong>, the journey began from a humble momo cart — driven by passion, consistency, and the dream of building something bigger. What started small soon transformed into a growing food ecosystem with the success of <strong>Dimsum Box</strong>, now proudly serving customers through <strong>100+ outlets across India</strong>.</p>
+          <p>But while building successful food brands, one thing became clear — the new generation was evolving. They wanted authentic flavours, but they also wanted aesthetics, hygiene, experience, and spaces they could connect with.</p>
+          <p>That vision led to the creation of <strong>Kulcha &amp; Prantha Co.</strong> — a modern Indian food brand built to redefine the way people experience traditional comfort food. Where buttery kulchas, loaded pranthas, and handcrafted beverages meet an atmosphere that feels urban, vibrant, and contemporary.</p>
+        </div>
+
+        <div class="about-founder-col" data-reveal>
+          <div class="about-founder-panel">
+            <span class="about-founder-label">Meet the Founder</span>
+            <h3 class="about-founder-name">Rahul Tyagi</h3>
+            <div class="about-founder-rule"></div>
+            <p class="about-founder-text">"More than just a restaurant, we are building a community around food, culture, conversations, and experiences. Kulchas and pranthas are not just dishes — they are emotions, memories, and a part of who we are."</p>
+            <div class="about-milestone">
+              <span class="about-milestone-num">100+</span>
+              <span class="about-milestone-label">Outlets Across India</span>
+            </div>
+            <div class="about-milestone">
+              <span class="about-milestone-num">Dimsum Box</span>
+              <span class="about-milestone-label">Parent Brand — A Proven Success</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ─── VISION BLOCK ─────────────────────────────────────── -->
+      <div class="about-vision" data-reveal>
+        <div class="about-vision-inner">
+          <span class="about-vision-eyebrow">Our Vision</span>
+          <h2 class="about-vision-title">Redefining Indian Comfort<br>Food for a <span class="accent">New Generation</span></h2>
+          <p class="about-vision-text">We aim to build a brand where traditional Indian flavours meet contemporary experiences — creating spaces that are vibrant, hygienic, aesthetic, and deeply rooted in Indian culture. Our goal is to transform everyday dishes like kulchas and pranthas into experiences people connect with, celebrate, and come back to.</p>
+          <p class="about-vision-text">We envision Kulcha &amp; Prantha Co. becoming a nationwide symbol of modern Indian dining — where authenticity, quality, and innovation exist together. Because we believe the future of food is not about replacing tradition. It is about reinventing it for a new generation.</p>
+        </div>
+      </div>
+
+      <!-- ─── BRAND PRINCIPLES / USP STRIP ─────────────────────── -->
+      <div class="about-principles">
+
+        <div class="about-principle" data-reveal>
+          <span class="about-principle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </span>
+          <h4 class="about-principle-title">FOFO Model</h4>
+          <p class="about-principle-desc">Franchise-owned, franchise-operated — a scalable partnership model built for quality consistency across every outlet.</p>
+        </div>
+
+        <div class="about-principle" data-reveal>
+          <span class="about-principle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20V10M18 20V4M6 20v-4"/>
+            </svg>
+          </span>
+          <h4 class="about-principle-title">Customised Paratha</h4>
+          <p class="about-principle-desc">Every paratha built by choice — pick your stuffing, spice level, and accompaniment. Your plate, your way.</p>
+        </div>
+
+        <div class="about-principle" data-reveal>
+          <span class="about-principle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </span>
+          <h4 class="about-principle-title">Pizza Paratha</h4>
+          <p class="about-principle-desc">Our signature innovation — the flavours of a pizza folded into a hand-rolled paratha. A category we created.</p>
+        </div>
+
+        <div class="about-principle" data-reveal>
+          <span class="about-principle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </span>
+          <h4 class="about-principle-title">Community First</h4>
+          <p class="about-principle-desc">We are building more than a brand — a community-driven culture around modern Indian comfort food, conversations, and shared experiences.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       TIMELINE — OUR JOURNEY
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="timeline" id="timeline">
+    <div class="timeline-bg" aria-hidden="true"></div>
+    <div class="timeline-container">
+      <div class="timeline-intro">
+        <span class="timeline-eyebrow" data-reveal>Our Journey</span>
+        <h2 class="timeline-title" data-reveal>From a Cart to <span class="accent">100+ Outlets</span></h2>
+      </div>
+
+      <div class="timeline-track">
+
+        <div class="timeline-item" data-reveal>
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">2017</span>
+          <h3 class="timeline-headline">The Humble Beginning</h3>
+          <p class="timeline-desc">Rahul Tyagi starts with a small momo cart in Chandigarh. No investors. No backup. Just a belief in the product and an obsession with quality.</p>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">2019</span>
+          <h3 class="timeline-headline">Dimsum Box Is Born</h3>
+          <p class="timeline-desc">The first Dimsum Box outlet opens. Within months, the brand develops a cult following — proving that affordable, quality Asian street food has a massive untapped market in India.</p>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">2021</span>
+          <h3 class="timeline-headline">Rapid Expansion</h3>
+          <p class="timeline-desc">Dimsum Box crosses 30 outlets across North India. The FOFO (Franchise-Owned, Franchise-Operated) model proves itself as a sustainable, high-quality growth engine.</p>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">2023</span>
+          <h3 class="timeline-headline">A New Vision Takes Shape</h3>
+          <p class="timeline-desc">Seeing the gap in the Indian flatbread space, the team begins crafting the concept for Kulcha &amp; Prantha Co. — a brand built to bring traditional Indian comfort food into the modern era.</p>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">2024</span>
+          <h3 class="timeline-headline">Kulcha &amp; Prantha Co. Launches</h3>
+          <p class="timeline-desc">The first outlet opens in Chandigarh to an overwhelming response. The menu — built around customisable paranthas, tandoori kulchas, and a vibrant dining experience — strikes an immediate chord.</p>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <span class="timeline-dot"></span>
+          <span class="timeline-year">2025</span>
+          <h3 class="timeline-headline">100+ &amp; Growing</h3>
+          <p class="timeline-desc">With 100+ outlets across India and franchise queries pouring in from new cities, the brand enters its next chapter — scaling without compromising the quality that made it successful.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       CONTACT US
+       ══════════════════════════════════════════════════════════════ -->
+  <section class="contact-section" id="contact">
+    <div class="contact-pattern" aria-hidden="true"></div>
+    <div class="contact-container">
+      <span class="contact-eyebrow">Visit or Reach Us</span>
+      <h2 class="contact-title">Contact <span class="accent">Us</span></h2>
+      <div class="contact-divider"></div>
+
+      <div class="contact-grid">
+        <!-- ─── LEFT: ADDRESS ─────────────────────────────────── -->
+        <div class="contact-col">
+          <span class="contact-block-label">Address</span>
+          <div>
+            <div class="contact-address-line">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--saffron)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:6px">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              21, Inner Market, Sector 9D
+            </div>
+            <div class="contact-address-line muted">Near Sector 9</div>
+            <div class="contact-address-line">Chandigarh</div>
+          </div>
+        </div>
+
+        <!-- ─── CENTER: LOGO + SOCIALS ────────────────────────── -->
+        <div class="contact-col contact-col-center">
+          <div class="contact-logo-wrap">
+            <img src="Logo.png" alt="Kulcha &amp; Prantha Co.">
+          </div>
+          <div class="contact-socials">
+            <a href="#" class="contact-social-link" aria-label="Instagram" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="5"/>
+                <path d="M17.5 6.5h.01"/>
+              </svg>
+            </a>
+            <a href="#" class="contact-social-link" aria-label="Facebook" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
+            </a>
+            <a href="#" class="contact-social-link" aria-label="Location" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- ─── RIGHT: CONTACT DETAILS ────────────────────────── -->
+        <div class="contact-col">
+          <span class="contact-block-label">Contact</span>
+          <div>
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <span class="contact-detail-text">
+                <a href="tel:+919501091338" aria-label="Call us">+91 95010 91338</a>
+              </span>
+            </div>
+            <div class="contact-detail-row">
+              <div class="contact-detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="4"/>
+                  <path d="M22 6l-10 7L2 6"/>
+                </svg>
+              </div>
+              <span class="contact-detail-text">
+                <a href="mailto:hello@kulchaprantha.co" aria-label="Email us">hello@kulchaprantha.co</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       BOTTOM PROGRESS BAR
+       ══════════════════════════════════════════════════════════════ -->
+  <div class="page-progress" aria-hidden="true">
+    <div class="page-progress-fill" id="page-progress-fill"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       SCRIPTS
+       ══════════════════════════════════════════════════════════════ -->
+  <script>
+    (function() {
+      var nav = document.getElementById('site-nav');
+      var toggle = document.getElementById('nav-toggle');
+      var links = document.getElementById('nav-links');
+      var hero = document.getElementById('about-hero');
+      var ticking = false;
+      var gsapInit = false;
+
+      function setActiveNav() {
+        var path = location.pathname.split('/').pop() || 'index.html';
+        var links = document.querySelectorAll('.nav-links a');
+        links.forEach(function(a) {
+          var href = a.getAttribute('href');
+          a.classList.toggle('active', href === path);
+          a.toggleAttribute('aria-current', href === path);
+        });
+      }
+      setActiveNav();
+
+      // ─── GSAP Nav Animation ──────────────────────────────────────
+      function initGsapNav() {
+        if (typeof gsap === 'undefined' || gsapInit) return;
+        gsapInit = true;
+        var tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 0.6 }, onComplete: function() {
+          document.documentElement.removeAttribute('data-gsap-preload');
+        }});
+        tl.from('.site-nav', { y: -30, autoAlpha: 0, duration: 0.5 });
+        tl.from('.nav-links a', { y: -12, autoAlpha: 0, stagger: 0.06 }, '-=0.25');
+        tl.from('.nav-actions > *', { scale: 0.8, autoAlpha: 0, stagger: 0.08 }, '-=0.2');
+      }
+      document.addEventListener('DOMContentLoaded', initGsapNav);
+      if (document.readyState === 'complete' || document.readyState === 'interactive') initGsapNav();
+      window.addEventListener('pageshow', function(e) {
+        if (e.persisted) { gsapInit = false; initGsapNav(); }
+      });
+
+      function updateNav() {
+        nav.classList.toggle('scrolled', window.scrollY > 40);
+      }
+
+      if (toggle && links) {
+        toggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          links.classList.toggle('open');
+          toggle.classList.toggle('open');
+        });
+        document.addEventListener('click', function(e) {
+          if (!toggle.contains(e.target) && !links.contains(e.target)) {
+            links.classList.remove('open');
+            toggle.classList.remove('open');
+          }
+        });
+      }
+
+      setTimeout(function() {
+        var els = [
+          hero.querySelector('.about-hero-eyebrow'),
+          hero.querySelector('.about-hero-title'),
+          hero.querySelector('.about-hero-sub'),
+          hero.querySelector('.about-hero-divider')
+        ];
+        els.forEach(function(el, i) {
+          if (el) setTimeout(function() { el.classList.add('visible'); }, i * 180);
+        });
+      }, 300);
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          requestAnimationFrame(function() {
+            updateNav();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
+      updateNav();
+    })();
+  </script>
+
+  <script>
+    (function() {
+      var els = document.querySelectorAll('[data-reveal]');
+      if (els.length && 'IntersectionObserver' in window) {
+        els.forEach(function(el, i) {
+          var obs = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+              setTimeout(function() { el.classList.add('revealed'); }, i * 100);
+              obs.disconnect();
+            }
+          }, { threshold: 0.1 });
+          obs.observe(el);
+        });
+      } else {
+        els.forEach(function(el) { el.classList.add('revealed'); });
+      }
+
+      var fill = document.getElementById('page-progress-fill');
+      if (fill) {
+        function updateProgress() {
+          var scrollTop = window.scrollY;
+          var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          if (docHeight > 0) {
+            fill.style.width = Math.min(scrollTop / docHeight * 100, 100) + '%';
+          }
+        }
+        var progTick = false;
+        window.addEventListener('scroll', function() {
+          if (!progTick) {
+            requestAnimationFrame(function() {
+              updateProgress();
+              progTick = false;
+            });
+            progTick = true;
+          }
+        });
+        updateProgress();
+      }
+    })();
+  </script>
+
+</body>
+</html>
